@@ -23,4 +23,14 @@ const images = [
     url: "https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg",
     alt: "Lighthouse Coast Sea",
   }
-];
+]; //масив images з об'єктами
+
+
+const gallery = document.querySelector('.gallery'); //Знаходимо елемент ul з класом gallery за допомогою document.querySelector
+
+const galleryItems = images
+  .map(({ url, alt }) => 
+    `<li><img src="${url}" alt="${alt}"></li>`)
+  .join(''); //Використовуємо метод map для створення рядків HTML для кожного зображення і об'єднуємо їх в один рядок за допомогою join('')
+
+  gallery.insertAdjacentHTML('beforeend', galleryItems); //Додаємо створені елементи до списку ul за допомогою insertAdjacentHTML
